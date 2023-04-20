@@ -21,6 +21,7 @@ public class EmailApplication {
         AdvancedSpellChecker advancedSpellChecker1 = applicationContext.getBean("advancedSpellChecker", AdvancedSpellChecker.class);
         System.out.println(advancedSpellChecker1);
 
+        // Lifecycle
         ((AnnotationConfigApplicationContext) applicationContext).registerShutdownHook();
     }
 }

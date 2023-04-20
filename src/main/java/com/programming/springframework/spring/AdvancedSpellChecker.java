@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("singleton")
+//@Scope("singleton")
 @PropertySource(value = "classpath:/application.properties")
-public class AdvancedSpellChecker implements SpellChecker, InitializingBean, DisposableBean {
+public class AdvancedSpellChecker implements SpellChecker, InitializingBean, DisposableBean { //Lifecycle
 
 
     @Value("${app.database.uri}")
@@ -31,7 +31,7 @@ public class AdvancedSpellChecker implements SpellChecker, InitializingBean, Dis
             throw new RuntimeException("An exception occurred while checking Spelling");
         }
     }
-
+    @Override
     public void destroy() {
         System.out.println("Destroy");
     }
