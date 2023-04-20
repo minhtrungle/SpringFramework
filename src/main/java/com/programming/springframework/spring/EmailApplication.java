@@ -14,5 +14,13 @@ public class EmailApplication {
         EmailClient emailClient = applicationContext.getBean("emailClient", EmailClient.class);
         emailClient.sendEmail("Text 1");
         emailClient.sendEmail("Text 2");
+
+        // Bean Scopes
+        AdvancedSpellChecker advancedSpellChecker = applicationContext.getBean("advancedSpellChecker", AdvancedSpellChecker.class);
+        System.out.println(advancedSpellChecker);
+        AdvancedSpellChecker advancedSpellChecker1 = applicationContext.getBean("advancedSpellChecker", AdvancedSpellChecker.class);
+        System.out.println(advancedSpellChecker1);
+
+        ((AnnotationConfigApplicationContext) applicationContext).registerShutdownHook();
     }
 }
